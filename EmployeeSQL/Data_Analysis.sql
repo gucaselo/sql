@@ -1,4 +1,4 @@
--- Employee details ( employee number, last name, first name, sex, and salary)
+-- Employee details (employee number, last name, first name, sex, and salary)
 SELECT e.emp_no, e.last_name, e.first_name, e.sex, s.salary
 FROM employees AS e
 INNER JOIN salaries AS s ON
@@ -7,7 +7,7 @@ e.emp_no = s.emp_no;
 -- Employees hired in 1986 details (first name, last name, and hire date)
 SELECT first_name, last_name, hire_date
 FROM employees
-WHERE sex = 'M'; --Need to change for a year filter;
+WHERE extract(year from hire_date) = '1986';
 
 -- Managers detail information (department number, department name, the manager's employee number, last name, first name).
 SELECT dm.dept_no, d.dept_name, dm.emp_no, e.last_name, e.first_name 
@@ -51,7 +51,7 @@ INNER JOIN departments AS d ON
 de.dept_no = d.dept_no
 WHERE dept_name = 'Sales' OR dept_name = 'Development';
 
--- Frequency count of employee last names.
+-- Frequency count of employee last names in descending order.
 SELECT last_name, count(last_name) AS last_name_freq
 FROM employees
 GROUP BY last_name
