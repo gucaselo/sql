@@ -18,7 +18,7 @@ FOREIGN KEY (emp_title_id) REFERENCES titles(title_id)
 
 -- Create Salaries Table
 CREATE TABLE salaries (
-emp_no INT,
+emp_no INT PRIMARY KEY,
 salary INT,
 FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
 );
@@ -33,6 +33,7 @@ dept_name VARCHAR(100)
 CREATE TABLE dept_employees (
 emp_no INT,
 dept_no VARCHAR(50),
+PRIMARY KEY (emp_no, dept_no),
 FOREIGN KEY (emp_no) REFERENCES employees(emp_no),
 FOREIGN KEY (dept_no) REFERENCES departments(dept_no)
 );
@@ -41,12 +42,13 @@ FOREIGN KEY (dept_no) REFERENCES departments(dept_no)
 CREATE TABLE dept_manager (
 dept_no VARCHAR(50),
 emp_no INT,
+PRIMARY KEY (dept_no, emp_no),
 FOREIGN KEY (dept_no) REFERENCES departments(dept_no),
 FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
 );
 
 -- Used drop table if a data type conflict happened 
-DROP TABLE dept_manager, dept_employees, departments, salaries, employees, titles;
+DROP TABLE IF EXISTS dept_manager, dept_employees, departments, salaries, employees, titles; 
 
 -- Check created tables
 SELECT *
