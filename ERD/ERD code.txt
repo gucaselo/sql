@@ -10,7 +10,7 @@ hire_date DATE
 
 Salaries
 -
-emp_no INT FK - Employees.emp_no
+emp_no INT PK FK - Employees.emp_no
 salary INT
 
 Titles
@@ -25,10 +25,10 @@ dept_name VARCHAR(100)
 
 Dept_Manager
 -
-dept_no VARCHAR(50) FK >- Departments.dept_no
-emp_no INT FK >- Employees.emp_no
+dept_no VARCHAR(50) PK FK - Departments.dept_no
+emp_no INT PK FK - Employees.emp_no
 
 Dept_Employees
 -
-emp_no INT FK >- Employees.emp_no
-dept_no VARCHAR(50) FK >- Departments.dept_no
+emp_no INT PK FK - Employees.emp_no
+dept_no VARCHAR(50) PK FK - Departments.dept_no
