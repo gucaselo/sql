@@ -22,3 +22,6 @@ Queries performed:
 * Employees in the Sales department infromation (employee number, last name, first name, and department name)
 * Employees in the Sales and Development departments information (employee number, last name, first name, and department name)
 * Frequency count of employee last names in descending order
+
+#### Analysis using Pandas:
+Imported the SQL database in Pandas using [SQLAlchemy](https://docs.sqlalchemy.org/en/latest/core/engines.html#postgresql) and created a Histogram plot to visualize the most common salary ranges for employees and a Bar plot of the average salaries by title.
